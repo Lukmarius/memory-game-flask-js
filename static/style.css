@@ -1,0 +1,31 @@
+body {
+    background: linear-gradient(to right, blanchedalmond, aliceblue,  blanchedalmond ) ;
+    color: midnightblue;
+}
+
+.main {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+table{
+    border: 3px solid midnightblue;
+    padding: 3px;
+}
+td {
+    border: 2px solid midnightblue;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.foot {
+    position: absolute;
+    font-size: 18px;
+    bottom: 0.5em;
+    width: 98%;
+    text-align: center;
+}

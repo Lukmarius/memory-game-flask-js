@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class='main'>
+    <p><h3>Set the number of fields:</h3></p>
+    <form action="{{ url_for('game') }}" method="post">
+
+        <label for="x">Number of elements in row:</label><br><br>
+        <select name="x" id="x">
+                <option value="please select a number" selected>please select a number</option>
+                {% for num in range(1, 9) %}
+                <option value="{{ num }}">{{ num }}</option>
+                {% endfor %}
+        </select><br><br><br>
+
+        <label for="y">Number of elements in column:</label><br><br>
+        <select name="y" id="y">
+                <option value="please select a number" selected>please select a number</option>
+                {% for num in range(2, 9, 2) %}
+                <option value="{{ num }}">{{ num }}</option>
+                {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Go!">
+            
+    </form>
+    {% if info %}
+    <p>{{ info }}</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}
