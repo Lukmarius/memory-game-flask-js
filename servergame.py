@@ -5,10 +5,9 @@ app = Flask(__name__, static_url_path='/static')
 
 
 @app.route('/', methods=['GET'])
-@app.route('/<info>', methods=['GET'])
-def index(info=None):
+def index():
 
-    return render_template('index.html', info=info)
+    return render_template('index.html')
 
 
 @app.route('/game', methods=['GET', 'POST'])
@@ -16,9 +15,8 @@ def game():
     try:
         rows = int(request.form.get('y'))
         columns = int(request.form.get('x'))
-    except ValueError:
-        info_for_user = "SELECT A NUMBER!"
-        return redirect('/{info}'.format(info=info_for_user))
+    except:
+        return redirect('/')
     
     return render_template('game.html', rows=rows, columns=columns)
 
