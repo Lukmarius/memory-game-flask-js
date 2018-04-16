@@ -8,7 +8,7 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-60%, -50%);
 }
 table{
     border: 3px solid midnightblue;
@@ -22,10 +22,16 @@ td {
     padding-right: 15px;
 }
 
+.info {
+    color: crimson;
+    position: fixed;
+    left: 10%;
+}
+
 .foot {
     position: absolute;
     font-size: 18px;
-    bottom: 0.5em;
-    width: 98%;
+    bottom: 0.3em;
+    width: 94%;
     text-align: center;
 }

@@ -6,7 +6,7 @@
     {% for num_of_row in range(rows) %}
     <tr>
         {% for num_of_column in range(columns) %}
-        <td id="{{cell_num|length}}" style="font-size: 3em;"> <i class="fab fa-adn"></i></td>
+        <td id="{{cell_num|length}}" style="font-size: 3em;"> <i class="fas fa-align-justify"></i> </td>
         {% if cell_num.append("cell") %} {% endif %}
         {% endfor %}
     </tr>
@@ -15,7 +15,8 @@
 <p>
     <a href="{{ url_for('index') }}"><input type="button" value="Back"></a>
 </p>
+<p id="a"></p>
 </div>
-<script type="text/javascript" src="game.js" defer></script>
+<script type="text/javascript" src="game.js"></script>
 
 {% endblock %}
