@@ -6,8 +6,8 @@
     {% for num_of_row in range(rows) %}
     <tr>
         {% for num_of_column in range(columns) %}
-        <td id="{{cell_num|length}}" style="font-size: 3em;" onclick="change('{{ cell_num|length }}t')"> 
-            <i id="{{cell_num|length}}t" class="fas fa-align-justify"></i> </td>
+        <td id="{{cell_num|length}}" style="font-size: 3em;" onclick="togClass('{{ cell_num|length }}i')"> 
+            <i id="{{cell_num|length}}i" class="fas fa-align-justify"></i> </td>
         {% if cell_num.append("cell") %} {% endif %}
         {% endfor %}
     </tr>
