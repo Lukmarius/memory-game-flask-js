@@ -1,24 +1,34 @@
 var numOfCells = document.getElementsByClassName("cells").length;
 
-var allImages = new Array("fas fa-signal", "fas fa-address-book", "fas fa-car", "fas fa-code-branch", 
-                          "fas fa-adjust", "fas fa-box-open", "fas fa-anchor", "fas fa-compass", 
-                          "fas fa-anchor", "fas fa-arrows-alt", "fas fa-balance-scale", "fas fa-hand-holding-usd",
-                          "fas fa-basketball-ball", "fas fa-at", "fas fa-barcode", "fas fa-bath", 
-                          "fas fa-battery-three-quarters", "fas fa-bicycle", "fas fa-home",
-                          "fas fa-futbol", "fas fa-heart", "fas fa-save", "fas fa-road", "fas fa-table-tennis",
-                          "fas fa-moon", "fas fa-music", "fas fa-phone", "fas fa-search",
-                          "fas fa-shower", "fas fa-sun", "fas fa-subway", "fas fa-thermometer-half");
+var allImages = new Array("fa-signal", "fa-tablet-alt", "fa-car", "fa-code-branch", 
+                          "fa-tablets", "fa-box-open", "fa-anchor", "fa-compass", 
+                          "fa-anchor", "fa-arrows-alt", "fa-balance-scale", "fa-hand-holding-usd",
+                          "fa-basketball-ball", "fa-at", "fa-barcode", "fa-bath", 
+                          "fa-battery-three-quarters", "fa-bicycle", "fa-home",
+                          "fa-futbol", "fa-heart", "fa-save", "fa-road", "fa-table-tennis",
+                          "fa-moon", "fa-music", "fa-phone", "fa-search",
+                          "fa-shower", "fa-sun", "fa-subway", "fa-thermometer-half");
 
-document.getElementById('a').innerHTML = allImages.length;/* for test only, needed 32 */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    } return array
+};
 
-var imagesArray = allImages.slice(0, numOfCells - 1); /* finally numOfCells-1/2 */
+allImages = shuffleArray(allImages);
+
+var imagesArray = allImages.slice(0, (numOfCells/2));
+imagesArray = imagesArray.concat(imagesArray);
+imagesArray = shuffleArray(imagesArray);
 
 for (i=0; i<=numOfCells-1; i++) {
-    document.getElementById(i+'i').classList.add("fas", "fa-align-justify");
+    var cell = document.getElementById(i);
+    cell.classList.add("fas", "fa-align-justify");
 };
 
-
-function togClass(id) {
+function toggleClass(id) {
     var cell = document.getElementById(id);
-    cell.classList.toggle();
+    cell.classList.toggle(imagesArray[id], true);
 };
+
