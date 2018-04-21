@@ -28,7 +28,23 @@ for (i=0; i<=numOfCells-1; i++) {
 };
 
 function toggleClass(id) {
+    var numOfCells = document.getElementsByClassName("cells").length;
     var cell = document.getElementById(id);
-    cell.classList.toggle(imagesArray[id], true);
+    var oldClass = "fa-align-justify";
+    var newClass = imagesArray[id];
+    cell.classList.toggle(newClass, true);
+    cell.classList.toggle(oldClass, false);
+    var countBack = document.getElementsByClassName("fa-align-justify").length;
+    console.log('Backs: ' + countBack); /* test*/
+    if (countBack % 2 == 0) {
+        var countCurrent = document.getElementsByClassName(newClass).length;
+        console.log('current: ' + countCurrent); /* test*/
+        if (countCurrent == 1) {
+            for (i=0; i<=numOfCells-1; i++) { /* NOT ALL !!! */
+                document.getElementById(i).className = "fas fa-align-justify";
+            };
+            cell.classList.toggle(newClass, true);
+        }
+    }
 };
 
