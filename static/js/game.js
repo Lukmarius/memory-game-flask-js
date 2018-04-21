@@ -27,6 +27,8 @@ for (i=0; i<=numOfCells-1; i++) {
     cell.classList.add("fas", "fa-align-justify");
 };
 
+var turnedUp = []; /* array of turned up cards */
+
 function toggleClass(id) {
     var numOfCells = document.getElementsByClassName("cells").length;
     var cell = document.getElementById(id);
@@ -34,17 +36,19 @@ function toggleClass(id) {
     var newClass = imagesArray[id];
     cell.classList.toggle(newClass, true);
     cell.classList.toggle(oldClass, false);
-    var countBack = document.getElementsByClassName("fa-align-justify").length;
-    console.log('Backs: ' + countBack); /* test*/
-    if (countBack % 2 != 0) {
-        var countCurrent = document.getElementsByClassName(newClass).length;
-        console.log('current: ' + countCurrent); /* test*/
-        if (countCurrent == 1) {
-            for (i=0; i<=numOfCells-1; i++) { /* NOT ALL !!! */
-                document.getElementById(i).className = "fas fa-align-justify";
-            };
-            cell.classList.toggle(newClass, true);
-        }
-    }
-};
+    turnedUp.push(cell);
+    console.log("After turned up: ");
+    console.log(turnedUp);
+    if (turnedUp.length % 2 == 0) {
+        if (turnedUp[turnedUp.length-1].className != turnedUp[turnedUp.length-2].className) {
+            turnedUp[turnedUp.length-2].className = '';
+            turnedUp[turnedUp.length-2].classList.add("fas", "fa-align-justify");
+            console.log("To splice:")
+            console.log(turnedUp[turnedUp.length-2])
+            turnedUp.splice(turnedUp.length-2, 1);
+            console.log("After turned down:");
+            console.log(turnedUp);
+        };
+    };
 
+};
